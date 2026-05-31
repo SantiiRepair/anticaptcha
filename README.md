@@ -61,9 +61,11 @@ void main() async {
 final result = await client.solve(
   TurnstileTask(
     websiteURL: 'https://example.com',
-    websiteKey: 'YOUR_TURNSTILE_SITE_KEY',
+    websiteKey: 'YOUR_TURNSTILE_KEY',
+    action: 'login', // optional
   ),
 );
+
 print('Token: ${result.solution?['token']}');
 ```
 

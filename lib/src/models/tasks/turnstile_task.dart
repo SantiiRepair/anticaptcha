@@ -7,16 +7,16 @@ part 'turnstile_task.g.dart';
 class TurnstileTask extends CaptchaTask {
   final String websiteURL;
   final String websiteKey;
-  final String? pageAction;
-  final String? pageData;
-  final String? userAgent;
+  final String? action;
+  final String? cData;
+  final String? chlPageData;
 
   TurnstileTask({
     required this.websiteURL,
     required this.websiteKey,
-    this.pageAction,
-    this.pageData,
-    this.userAgent,
+    this.action,
+    this.cData,
+    this.chlPageData,
   }) : super(type: 'TurnstileTaskProxyless');
 
   factory TurnstileTask.fromJson(Map<String, dynamic> json) =>
