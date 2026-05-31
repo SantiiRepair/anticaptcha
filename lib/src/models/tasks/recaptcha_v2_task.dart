@@ -10,7 +10,7 @@ class RecaptchaV2Task extends CaptchaTask {
   final String? websiteSToken;
   final String? recaptchaDataSValue;
   final bool? isInvisible;
-  
+
   // Proxy parameters
   final String proxyType;
   final String proxyAddress;
@@ -39,5 +39,6 @@ class RecaptchaV2Task extends CaptchaTask {
       _$RecaptchaV2TaskFromJson(json);
 
   @override
-  Map<String, dynamic> toJson() => _$RecaptchaV2TaskToJson(this)..['type'] = type;
+  Map<String, dynamic> toJson() =>
+      _$RecaptchaV2TaskToJson(this)..['type'] = type;
 }

@@ -23,5 +23,6 @@ class TurnstileTaskProxyless extends CaptchaTask {
       _$TurnstileTaskProxylessFromJson(json);
 
   @override
-  Map<String, dynamic> toJson() => _$TurnstileTaskProxylessToJson(this)..['type'] = type;
+  Map<String, dynamic> toJson() =>
+      _$TurnstileTaskProxylessToJson(this)..['type'] = type;
 }

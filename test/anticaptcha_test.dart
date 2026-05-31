@@ -24,14 +24,14 @@ void main() {
       // Create a dummy file for testing
       final file = File('test_image.txt');
       await file.writeAsString('fake image data');
-      
+
       final base64 = await client.imageToBase64('test_image.txt');
       expect(base64, isNotEmpty);
-      
+
       await file.delete();
     });
 
-    // Note: We don't run full solver tests by default to save user balance, 
+    // Note: We don't run full solver tests by default to save user balance,
     // but we test the model serialization and client initialization.
     test('Client initializes correctly', () {
       expect(client.clientKey, equals(apiKey));

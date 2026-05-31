@@ -17,15 +17,18 @@ class AntiCaptchaClient {
     this.softId,
     Dio? dio,
     Duration timeout = const Duration(seconds: 30),
-  }) : _dio = dio ??
-            Dio(BaseOptions(
-              connectTimeout: timeout,
-              receiveTimeout: timeout,
-              headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-              },
-            ));
+  }) : _dio =
+           dio ??
+           Dio(
+             BaseOptions(
+               connectTimeout: timeout,
+               receiveTimeout: timeout,
+               headers: {
+                 'Content-Type': 'application/json',
+                 'Accept': 'application/json',
+               },
+             ),
+           );
 
   /// Gets the account balance.
   Future<double> getBalance() async {
@@ -43,7 +46,9 @@ class AntiCaptchaClient {
       }
       return (data['balance'] as num).toDouble();
     } on DioException catch (e) {
-      throw AntiCaptchaException('Network error during getBalance: ${e.message}');
+      throw AntiCaptchaException(
+        'Network error during getBalance: ${e.message}',
+      );
     }
   }
 
@@ -83,7 +88,8 @@ class AntiCaptchaClient {
     }
 
     throw AntiCaptchaException(
-        'Timeout: Task result not ready after ${maxRetries * pollingInterval.inSeconds} seconds');
+      'Timeout: Task result not ready after ${maxRetries * pollingInterval.inSeconds} seconds',
+    );
   }
 
   Future<CreateTaskResponse> createTask(CaptchaTask task) async {
@@ -102,7 +108,9 @@ class AntiCaptchaClient {
       );
       return CreateTaskResponse.fromJson(response.data);
     } on DioException catch (e) {
-      throw AntiCaptchaException('Network error during createTask: ${e.message}');
+      throw AntiCaptchaException(
+        'Network error during createTask: ${e.message}',
+      );
     }
   }
 
@@ -110,14 +118,13 @@ class AntiCaptchaClient {
     try {
       final response = await _dio.post(
         AntiCaptchaConstants.getTaskResultUrl,
-        data: {
-          'clientKey': clientKey,
-          'taskId': taskId,
-        },
+        data: {'clientKey': clientKey, 'taskId': taskId},
       );
       return GetTaskResultResponse.fromJson(response.data);
     } on DioException catch (e) {
-      throw AntiCaptchaException('Network error during getTaskResult: ${e.message}');
+      throw AntiCaptchaException(
+        'Network error during getTaskResult: ${e.message}',
+      );
     }
   }
 
@@ -141,7 +148,9 @@ class AntiCaptchaClient {
       }
       return base64Encode(response.data!);
     } on DioException catch (e) {
-      throw AntiCaptchaException('Network error downloading image: ${e.message}');
+      throw AntiCaptchaException(
+        'Network error downloading image: ${e.message}',
+      );
     }
   }
 }

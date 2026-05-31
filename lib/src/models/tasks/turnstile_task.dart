@@ -10,7 +10,7 @@ class TurnstileTask extends CaptchaTask {
   final String? action;
   final String? cData;
   final String? chlPageData;
-  
+
   // Proxy parameters
   final String proxyType;
   final String proxyAddress;

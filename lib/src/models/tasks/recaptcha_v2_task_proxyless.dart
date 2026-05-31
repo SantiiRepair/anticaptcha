@@ -23,5 +23,6 @@ class RecaptchaV2TaskProxyless extends CaptchaTask {
       _$RecaptchaV2TaskProxylessFromJson(json);
 
   @override
-  Map<String, dynamic> toJson() => _$RecaptchaV2TaskProxylessToJson(this)..['type'] = type;
+  Map<String, dynamic> toJson() =>
+      _$RecaptchaV2TaskProxylessToJson(this)..['type'] = type;
 }

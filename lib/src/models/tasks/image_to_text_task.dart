@@ -27,5 +27,6 @@ class ImageToTextTask extends CaptchaTask {
       _$ImageToTextTaskFromJson(json);
 
   @override
-  Map<String, dynamic> toJson() => _$ImageToTextTaskToJson(this)..['type'] = type;
+  Map<String, dynamic> toJson() =>
+      _$ImageToTextTaskToJson(this)..['type'] = type;
 }
