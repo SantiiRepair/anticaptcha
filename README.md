@@ -13,6 +13,8 @@ A modern, type-safe, and asynchronous Dart library for the [Anti-Captcha](https:
 - **🛡️ Type-Safe**: Comprehensive models for all captcha tasks and responses.
 - **⚡ Modern Networking**: Built on top of `Dio` for efficient HTTP requests and configurable timeouts.
 - **🔄 Automated Polling**: Simplified result retrieval with smart polling logic.
+- **💰 Balance Check**: Easily check your account balance.
+- **🆔 Soft ID Support**: Support for developer attribution (softId).
 - **🛠️ Extensible**: Easily support new captcha types like Cloudflare Turnstile, Recaptcha V2, and more.
 - **📦 Clean Architecture**: Organized codebase for better maintainability.
 
@@ -39,8 +41,12 @@ dart pub get
 import 'package:anticaptcha/anticaptcha.dart';
 
 void main() async {
-  // Initialize the client with your API key
-  final client = AntiCaptchaClient('YOUR_API_KEY');
+  // Initialize the client with your API key and optional softId
+  final client = AntiCaptchaClient('YOUR_API_KEY', softId: 162);
+
+  // Check balance
+  final balance = await client.getBalance();
+  print('Current Balance: $balance');
 
   try {
     // Solve an Image-to-Text captcha

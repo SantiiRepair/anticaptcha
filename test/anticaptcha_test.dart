@@ -15,6 +15,11 @@ void main() {
 
     final client = AntiCaptchaClient(apiKey);
 
+    test('getBalance returns a double', () async {
+      final balance = await client.getBalance();
+      expect(balance, isA<double>());
+    });
+
     test('imageToBase64 should encode file', () async {
       // Create a dummy file for testing
       final file = File('test_image.txt');
