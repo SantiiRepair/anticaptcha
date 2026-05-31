@@ -93,9 +93,26 @@ print('Token: ${result.solution?['token']}');
 #### Recaptcha V2 (Proxyless)
 ```dart
 final result = await client.solve(
+  RecaptchaV2TaskProxyless(
+    websiteURL: 'https://example.com',
+    websiteKey: 'YOUR_RECAPTCHA_KEY',
+  ),
+);
+print('gRecaptchaResponse: ${result.solution?['gRecaptchaResponse']}');
+```
+
+#### Recaptcha V2 (With Proxy)
+```dart
+final result = await client.solve(
   RecaptchaV2Task(
     websiteURL: 'https://example.com',
     websiteKey: 'YOUR_RECAPTCHA_KEY',
+    proxyType: 'http',
+    proxyAddress: '1.2.3.4',
+    proxyPort: 8080,
+    userAgent: 'Mozilla/5.0...',
+    proxyLogin: 'user', // optional
+    proxyPassword: 'pass', // optional
   ),
 );
 print('gRecaptchaResponse: ${result.solution?['gRecaptchaResponse']}');

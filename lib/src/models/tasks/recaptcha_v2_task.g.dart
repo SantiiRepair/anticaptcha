@@ -10,9 +10,16 @@ RecaptchaV2Task _$RecaptchaV2TaskFromJson(Map<String, dynamic> json) =>
     RecaptchaV2Task(
       websiteURL: json['websiteURL'] as String,
       websiteKey: json['websiteKey'] as String,
+      proxyType: json['proxyType'] as String,
+      proxyAddress: json['proxyAddress'] as String,
+      proxyPort: (json['proxyPort'] as num).toInt(),
+      userAgent: json['userAgent'] as String,
+      proxyLogin: json['proxyLogin'] as String?,
+      proxyPassword: json['proxyPassword'] as String?,
       websiteSToken: json['websiteSToken'] as String?,
       recaptchaDataSValue: json['recaptchaDataSValue'] as String?,
-      isInvisible: json['isInvisible'] as bool? ?? false,
+      isInvisible: json['isInvisible'] as bool?,
+      cookies: json['cookies'] as String?,
     );
 
 Map<String, dynamic> _$RecaptchaV2TaskToJson(RecaptchaV2Task instance) =>
@@ -22,4 +29,11 @@ Map<String, dynamic> _$RecaptchaV2TaskToJson(RecaptchaV2Task instance) =>
       'websiteSToken': instance.websiteSToken,
       'recaptchaDataSValue': instance.recaptchaDataSValue,
       'isInvisible': instance.isInvisible,
+      'proxyType': instance.proxyType,
+      'proxyAddress': instance.proxyAddress,
+      'proxyPort': instance.proxyPort,
+      'proxyLogin': instance.proxyLogin,
+      'proxyPassword': instance.proxyPassword,
+      'userAgent': instance.userAgent,
+      'cookies': instance.cookies,
     };

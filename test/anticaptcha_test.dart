@@ -47,6 +47,33 @@ void main() {
       expect(json['phrase'], true);
     });
 
+    test('RecaptchaV2TaskProxyless toJson', () {
+      final task = RecaptchaV2TaskProxyless(
+        websiteURL: 'url',
+        websiteKey: 'key',
+        isInvisible: true,
+      );
+      final json = task.toJson();
+      expect(json['type'], 'RecaptchaV2TaskProxyless');
+      expect(json['websiteURL'], 'url');
+      expect(json['isInvisible'], true);
+    });
+
+    test('RecaptchaV2Task toJson', () {
+      final task = RecaptchaV2Task(
+        websiteURL: 'url',
+        websiteKey: 'key',
+        proxyType: 'http',
+        proxyAddress: '1.2.3.4',
+        proxyPort: 8080,
+        userAgent: 'agent',
+      );
+      final json = task.toJson();
+      expect(json['type'], 'RecaptchaV2Task');
+      expect(json['proxyType'], 'http');
+      expect(json['userAgent'], 'agent');
+    });
+
     test('TurnstileTaskProxyless toJson', () {
       final task = TurnstileTaskProxyless(websiteURL: 'url', websiteKey: 'key');
       final json = task.toJson();
