@@ -47,11 +47,25 @@ void main() {
       expect(json['phrase'], true);
     });
 
-    test('TurnstileTask toJson', () {
-      final task = TurnstileTask(websiteURL: 'url', websiteKey: 'key');
+    test('TurnstileTaskProxyless toJson', () {
+      final task = TurnstileTaskProxyless(websiteURL: 'url', websiteKey: 'key');
       final json = task.toJson();
       expect(json['type'], 'TurnstileTaskProxyless');
       expect(json['websiteURL'], 'url');
+    });
+
+    test('TurnstileTask toJson', () {
+      final task = TurnstileTask(
+        websiteURL: 'url',
+        websiteKey: 'key',
+        proxyType: 'http',
+        proxyAddress: '1.2.3.4',
+        proxyPort: 8080,
+      );
+      final json = task.toJson();
+      expect(json['type'], 'TurnstileTask');
+      expect(json['proxyType'], 'http');
+      expect(json['proxyPort'], 8080);
     });
   });
 }

@@ -10,9 +10,17 @@ TurnstileTask _$TurnstileTaskFromJson(Map<String, dynamic> json) =>
     TurnstileTask(
       websiteURL: json['websiteURL'] as String,
       websiteKey: json['websiteKey'] as String,
+      proxyType: json['proxyType'] as String,
+      proxyAddress: json['proxyAddress'] as String,
+      proxyPort: (json['proxyPort'] as num).toInt(),
+      proxyLogin: json['proxyLogin'] as String?,
+      proxyPassword: json['proxyPassword'] as String?,
       action: json['action'] as String?,
       cData: json['cData'] as String?,
       chlPageData: json['chlPageData'] as String?,
+      userAgent: json['userAgent'] as String?,
+      cookies: json['cookies'] as String?,
+      isInvisible: json['isInvisible'] as bool?,
     );
 
 Map<String, dynamic> _$TurnstileTaskToJson(TurnstileTask instance) =>
@@ -22,4 +30,12 @@ Map<String, dynamic> _$TurnstileTaskToJson(TurnstileTask instance) =>
       'action': instance.action,
       'cData': instance.cData,
       'chlPageData': instance.chlPageData,
+      'proxyType': instance.proxyType,
+      'proxyAddress': instance.proxyAddress,
+      'proxyPort': instance.proxyPort,
+      'proxyLogin': instance.proxyLogin,
+      'proxyPassword': instance.proxyPassword,
+      'userAgent': instance.userAgent,
+      'cookies': instance.cookies,
+      'isInvisible': instance.isInvisible,
     };

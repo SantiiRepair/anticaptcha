@@ -42,7 +42,7 @@ import 'package:anticaptcha/anticaptcha.dart';
 
 void main() async {
   // Initialize the client with your API key and optional softId
-  final client = AntiCaptchaClient('YOUR_API_KEY', softId: 162);
+  final client = AntiCaptchaClient('YOUR_API_KEY');
 
   // Check balance
   final balance = await client.getBalance();
@@ -62,16 +62,31 @@ void main() async {
 
 ### Supported Captcha Types
 
-#### Cloudflare Turnstile
+#### Cloudflare Turnstile (Proxyless)
 ```dart
 final result = await client.solve(
-  TurnstileTask(
+  TurnstileTaskProxyless(
     websiteURL: 'https://example.com',
     websiteKey: 'YOUR_TURNSTILE_KEY',
     action: 'login', // optional
   ),
 );
+print('Token: ${result.solution?['token']}');
+```
 
+#### Cloudflare Turnstile (With Proxy)
+```dart
+final result = await client.solve(
+  TurnstileTask(
+    websiteURL: 'https://example.com',
+    websiteKey: 'YOUR_TURNSTILE_KEY',
+    proxyType: 'http',
+    proxyAddress: '1.2.3.4',
+    proxyPort: 8080,
+    proxyLogin: 'user', // optional
+    proxyPassword: 'pass', // optional
+  ),
+);
 print('Token: ${result.solution?['token']}');
 ```
 
