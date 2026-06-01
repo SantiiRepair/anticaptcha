@@ -45,7 +45,7 @@ class AntiCaptchaClient {
           errorCode: data['errorCode']?.toString(),
         );
       }
-      return (data['balance'] as num).toDouble();
+      return double.tryParse(data['balance'].toString()) ?? 0.0;
     } on DioException catch (e) {
       throw AntiCaptchaException(
         'Network error during getBalance: ${e.message}',

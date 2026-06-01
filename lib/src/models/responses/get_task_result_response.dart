@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'flexible_num_converter.dart';
 
 part 'get_task_result_response.g.dart';
 
@@ -7,11 +8,21 @@ class GetTaskResultResponse {
   final int errorId;
   final String status;
   final Map<String, dynamic>? solution;
+  
+  @FlexibleNumConverter()
   final double? cost;
+  
   final String? ip;
+  
+  @FlexibleNumConverter()
   final int? createTime;
+  
+  @FlexibleNumConverter()
   final int? endTime;
+  
+  @FlexibleNumConverter()
   final int? solveCount;
+  
   final String? errorCode;
   final String? errorDescription;
 

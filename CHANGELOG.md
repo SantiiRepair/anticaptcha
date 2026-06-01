@@ -1,3 +1,8 @@
+## 0.0.2+1
+
+- Fix: Ensure `getBalance` robustly parses API balance response as double.
+- Fix: Use `FlexibleNumConverter` for `GetTaskResultResponse` fields to improve tolerance to varying JSON numeric formats.
+
 ## 0.0.2
 
 - Fix: Removed default 30s network timeout in `AntiCaptchaClient` to prevent premature task abortion.
