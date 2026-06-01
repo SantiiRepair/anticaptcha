@@ -18,15 +18,18 @@ class AntiCaptchaClient {
     Dio? dio,
     Duration? connectTimeout,
     Duration? receiveTimeout,
-  }) : _dio = dio ??
-            Dio(BaseOptions(
-              connectTimeout: connectTimeout,
-              receiveTimeout: receiveTimeout,
-              headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-              },
-            ));
+  }) : _dio =
+           dio ??
+           Dio(
+             BaseOptions(
+               connectTimeout: connectTimeout,
+               receiveTimeout: receiveTimeout,
+               headers: {
+                 'Content-Type': 'application/json',
+                 'Accept': 'application/json',
+               },
+             ),
+           );
 
   /// Gets the account balance.
   Future<double> getBalance() async {
