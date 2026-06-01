@@ -10,6 +10,7 @@ class FlexibleNumConverter implements JsonConverter<num?, dynamic> {
     if (json is String) return num.tryParse(json);
     return null;
   }
+
   @override
   dynamic toJson(num? object) => object;
 }
@@ -23,6 +24,7 @@ class FlexibleDoubleConverter implements JsonConverter<double?, dynamic> {
     if (json is String) return double.tryParse(json);
     return null;
   }
+
   @override
   dynamic toJson(double? object) => object;
 }
@@ -36,6 +38,7 @@ class FlexibleIntConverter implements JsonConverter<int, dynamic> {
     if (json is String) return int.tryParse(json) ?? 0;
     return 0;
   }
+
   @override
   dynamic toJson(int object) => object;
 }

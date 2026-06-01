@@ -9,21 +9,21 @@ class GetTaskResultResponse {
   final int errorId;
   final String status;
   final Map<String, dynamic>? solution;
-  
+
   @FlexibleDoubleConverter()
   final double? cost;
-  
+
   final String? ip;
-  
+
   @FlexibleIntConverter()
   final int? createTime;
-  
+
   @FlexibleIntConverter()
   final int? endTime;
-  
+
   @FlexibleIntConverter()
   final int? solveCount;
-  
+
   final String? errorCode;
   final String? errorDescription;
 
