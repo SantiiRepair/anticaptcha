@@ -26,3 +26,16 @@ class FlexibleDoubleConverter implements JsonConverter<double?, dynamic> {
   @override
   dynamic toJson(double? object) => object;
 }
+
+class FlexibleIntConverter implements JsonConverter<int?, dynamic> {
+  const FlexibleIntConverter();
+  @override
+  int? fromJson(dynamic json) {
+    if (json == null) return null;
+    if (json is num) return json.toInt();
+    if (json is String) return int.tryParse(json);
+    return null;
+  }
+  @override
+  dynamic toJson(int? object) => object;
+}
