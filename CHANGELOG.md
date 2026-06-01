@@ -1,3 +1,8 @@
+## 0.0.2
+
+- Fix: Removed default 30s network timeout in `AntiCaptchaClient` to prevent premature task abortion.
+- Fix: Corrected syntax error in `AntiCaptchaClient` constructor.
+
 ## 0.0.1
 
 - Initial release of the unofficial Anti-Captcha Dart library.
