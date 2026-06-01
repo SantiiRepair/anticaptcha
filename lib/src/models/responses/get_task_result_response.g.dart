@@ -9,7 +9,7 @@ part of 'get_task_result_response.dart';
 GetTaskResultResponse _$GetTaskResultResponseFromJson(
   Map<String, dynamic> json,
 ) => GetTaskResultResponse(
-  errorId: (json['errorId'] as num).toInt(),
+  errorId: const FlexibleIntConverter().fromJson(json['errorId']),
   status: json['status'] as String,
   solution: json['solution'] as Map<String, dynamic>?,
   cost: const FlexibleDoubleConverter().fromJson(json['cost']),
@@ -24,14 +24,28 @@ GetTaskResultResponse _$GetTaskResultResponseFromJson(
 Map<String, dynamic> _$GetTaskResultResponseToJson(
   GetTaskResultResponse instance,
 ) => <String, dynamic>{
-  'errorId': instance.errorId,
+  'errorId': const FlexibleIntConverter().toJson(instance.errorId),
   'status': instance.status,
   'solution': instance.solution,
   'cost': const FlexibleDoubleConverter().toJson(instance.cost),
   'ip': instance.ip,
-  'createTime': const FlexibleIntConverter().toJson(instance.createTime),
-  'endTime': const FlexibleIntConverter().toJson(instance.endTime),
-  'solveCount': const FlexibleIntConverter().toJson(instance.solveCount),
+  'createTime': _$JsonConverterToJson<dynamic, int>(
+    instance.createTime,
+    const FlexibleIntConverter().toJson,
+  ),
+  'endTime': _$JsonConverterToJson<dynamic, int>(
+    instance.endTime,
+    const FlexibleIntConverter().toJson,
+  ),
+  'solveCount': _$JsonConverterToJson<dynamic, int>(
+    instance.solveCount,
+    const FlexibleIntConverter().toJson,
+  ),
   'errorCode': instance.errorCode,
   'errorDescription': instance.errorDescription,
 };
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

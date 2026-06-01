@@ -5,6 +5,7 @@ part 'get_task_result_response.g.dart';
 
 @JsonSerializable()
 class GetTaskResultResponse {
+  @FlexibleIntConverter()
   final int errorId;
   final String status;
   final Map<String, dynamic>? solution;

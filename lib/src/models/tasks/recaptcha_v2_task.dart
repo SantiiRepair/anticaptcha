@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import '../../utils/json_converters.dart';
 import 'captcha_task.dart';
 
 part 'recaptcha_v2_task.g.dart';
@@ -14,6 +15,7 @@ class RecaptchaV2Task extends CaptchaTask {
   // Proxy parameters
   final String proxyType;
   final String proxyAddress;
+  @FlexibleIntConverter()
   final int proxyPort;
   final String? proxyLogin;
   final String? proxyPassword;
