@@ -1,3 +1,7 @@
+## 0.0.2+2
+
+- Fix: Resolved 'type String is not a subtype of type num' cast errors by applying FlexibleIntConverter to all integer fields across all models.
+
 ## 0.0.2+1
 
 - Fix: Ensure `getBalance` robustly parses API balance response as double.
