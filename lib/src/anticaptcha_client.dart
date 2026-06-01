@@ -16,19 +16,17 @@ class AntiCaptchaClient {
     this.clientKey, {
     this.softId,
     Dio? dio,
-    Duration timeout = const Duration(seconds: 30),
-  }) : _dio =
-           dio ??
-           Dio(
-             BaseOptions(
-               connectTimeout: timeout,
-               receiveTimeout: timeout,
-               headers: {
-                 'Content-Type': 'application/json',
-                 'Accept': 'application/json',
-               },
-             ),
-           );
+    Duration? connectTimeout,
+    Duration? receiveTimeout,
+  }) : _dio = dio ??
+            Dio(BaseOptions(
+              connectTimeout: connectTimeout,
+              receiveTimeout: receiveTimeout,
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+              },
+            ));
 
   /// Gets the account balance.
   Future<double> getBalance() async {
